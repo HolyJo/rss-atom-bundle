@@ -74,6 +74,12 @@ class Item implements ItemIn, ItemOut
     protected $comment;
 
     /**
+     * Rss  : rss.channel.item.media:content <rss><channel><item><media:content>
+     * @var string
+     */
+    protected $media;
+
+    /**
      * Atom : feed.entry.title <feed><entry><title>
      * Rss  : rss.channel.item.title <rss><channel><item><title>
      * @return string
@@ -251,6 +257,28 @@ class Item implements ItemIn, ItemOut
         $this->comment = $comment;
 
         return $this;
+    }
+
+    /**
+     * Rss  : rss.channel.item.media:content <rss><channel><item><media:content>
+     * @param string $media
+     * @return \Debril\RssAtomBundle\Protocol\Parser\Item
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+    
+    /**
+     * Rss  : rss.channel.item.media:content <rss><channel><item><media:content>
+     * @param string $media
+     * @return \Debril\RssAtomBundle\Protocol\Parser\Item
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 
 }
