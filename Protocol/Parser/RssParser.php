@@ -85,6 +85,10 @@ class RssParser extends Parser
                     ->setComment($xmlElement->comments)
                     ->setAuthor($xmlElement->author);
 
+            if (!empty($xmlElement->children('media', true))) {
+                $item->setMedia($xmlElement->children('media', true)->attributes()['url']);
+            }
+
             if ($mustPickLatest && $date > $latest)
             {
                 $latest = $date;
